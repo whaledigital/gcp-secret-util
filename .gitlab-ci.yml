@@ -1,0 +1,15 @@
+stages:
+  - publish
+
+publish:
+  image: node:12.13-alpine
+  stage: publish
+  script:
+    - echo $GOOGLE_APPLICATION_CREDENTIALS > /tmp/$CI_PIPELINE_ID.json
+    - export GOOGLE_APPLICATION_CREDENTIALS=/tmp/$CI_PIPELINE_ID.json
+    - npx google-artifactregistry-auth .npmrc
+    - npm install --progress=false
+    - npm run build
+    - npm publish
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'master'

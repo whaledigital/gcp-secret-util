@@ -1,0 +1,23 @@
+{
+  "name": "@whaledigital/gcp-secret-util",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/src/index.js",
+  "private": false,
+  "license": "CC-BY-NC-SA-4.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "npm i && npm run-script clean && tsc",
+    "clean": "rimraf dist"
+  },
+  "author": "tema@whale.digital",
+  "dependencies": {
+    "@google-cloud/secret-manager": "^3.2.0"
+  },
+  "devDependencies": {
+    "typescript": "4.0.2",
+    "rimraf": "^3.0.2"
+  }
+}
